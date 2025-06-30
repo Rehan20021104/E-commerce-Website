@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanka Crafts</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* Notification Styling */
+.notification {
+    display: none; 
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #088178;
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    font-size: 16px;
+    text-align: center;
+}
+.notification.show {
+    display: block; 
+    animation: fadeInOut 3s;
+}
+@keyframes fadeInOut {
+    0%, 80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* General Layout */
+#prodetails {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    flex-wrap: wrap; 
+}
+
+/* Product Image Section */
+.single-pro-image {
+    flex: 1.2; 
+    max-width: 60%; 
+    text-align: center;
+}
+.single-pro-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.small-img-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+.small-img-col img {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.small-img-col img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Product Details Section */
+.single-pro-details {
+    flex: 1; /* Slightly smaller than image section */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.single-pro-details h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.single-pro-details .productPrice {
+    font-size: 28px;
+    color: #088178;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.single-pro-details select,
+.single-pro-details input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+}
+.single-pro-details select:hover,
+.single-pro-details input:hover {
+    border-color: #088178;
+}
+
+/* Add to Cart Button */
+button.normal {
+    padding: 12px;
+    width: 100%;
+    font-size: 18px;
+    background: #088178;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+button.normal:hover {
+    background: #066963;
+    box-shadow: 0 4px 6px rgba(8, 129, 120, 0.4);
+}
+
+/* Comments Section */
+.comments-container {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    max-width: 100%;
+}
+.comments-container h4 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #ffffff;
+}
+.comment {
+    background-color: #333333;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 6px;
+    border: 1px solid #444;
+    margin-top: 15px;
+}
+textarea:focus {
+    border-color: #088178;
+    outline: none;
+}
+.submitCommentBtn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    background-color: #088178;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.submitCommentBtn:hover {
+    background: #066963;
+}
+
+</style>
+</head>
+<body>
+    <section id="header"> 
+        <a href="index.php"><img src="img/logo.png" class="logo" alt=""> </a>
+        <div>
+            <ui id="navbar">
+                <li><a href="index.php">Home</a></li>
+                <li><a class="active" href="shop.html">Products</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="blog.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <a href="#" id="close"><i class="far fa-times"></i></a>
+            </ui>
+        </div>
+        <div id="mobile">
+            <a href="Cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-bars"></i>
+        </div>
+    </section>
+
+    <!-- Product 1 Section -->
+    <section id="prodetails1" class="section-p1">
+        <div id="prodetails">
+            <div class="single-pro-image">
+                <img src="img/Products/cl1.jpg" width="100%" id="MainImg">
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="img/Products/cl11.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl12.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl13.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl1.jpg" width="100%" class="small-img">
+                    </div>
+                </div>
+            </div>
+            <div class="single-pro-details">
+                <h6>Home / Clothing</h6>
+                <h2 class="productName">Handloom Cotton Sarees</h2>
+                <h2 class="productPrice">LKR 9000.00</h2>
+                <select class="productSize" id="productSize1">
+                    <option value="">Select Size</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XL">XL</option>
+                    <option value="Large">Large</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Small">Small</option>
+                </select>
+                <input type="number" id="productQuantity1" value="1">
+                <button class="normal" id="addToCartBtn1" onclick="addToCart(1)">Add to Cart</button>
+                <h4>Product Description</h4>
+                <span>Handloom cotton sarees made from handmade cotton yarn, hand-dyed in color and made into fabric by hand. Made from soft cotton yarn, these sarees are lightweight and comfortable to wear. They are perfect for those who love to dress up and look stylish.</span>
+            </div>
+            <h4>Comments:</h4>
+            <div id="comments1" class="comments-container">
+                <div class="comment">
+                    <p><strong>Kavindi T.:</strong> This saree is beautiful! I love the quality!</p>
+                </div>
+                <div class="comment">
+                    <p><strong>Dulanjali F.:</strong> The colors are so vibrant, and the material feels luxurious. Perfect for festive occasions!</p>
+                </div>
+            </div>
+            <textarea id="commentInput1" placeholder="Add your comment..."></textarea>
+            <button class="submitCommentBtn" onclick="addComment(1)">Submit Comment</button>
+        </div>
+        </div>
+    </section>
+
+    <!-- Product 2 Section -->
+    <section id="prodetails2" class="section-p1">
+        <div id="prodetails">
+            <div class="single-pro-image">
+                <img src="img/Products/cl2.jpg" width="100%" id="MainImg">
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="img/Products/cl21.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl22.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl23.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl2.jpg" width="100%" class="small-img">
+                    </div>
+                </div>
+            </div>
+            <div class="single-pro-details">
+                <h6>Home / Clothing</h6>
+                <h2 class="productName">Batik Sarongs</h2>
+                <h2 class="productPrice">LKR 4000.00</h2>
+                <select class="productSize" id="productSize2">
+                    <option value="">Select Size</option>>
+                    <option value="Large">Large</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Small">Small</option>
+                </select>
+                <input type="number" id="productQuantity2" value="1">
+                <button class="normal" id="addToCartBtn2" onclick="addToCart(2)">Add to Cart</button>
+                <h4>Product Description</h4>
+                <span>Lightweight sarongs dyed using traditional batik techniques, with intricate designs in bold colors, suitable for casual wear or beach outings.</span>
+            </div>
+            <h4>Comments:</h4>
+            <div id="comments2" class="comments-container">
+                <div class="comment">
+                    <p><strong>Harsha J.:</strong> The designs are stunning, and it’s so lightweight. Perfect for beach outings.</p>
+                </div>
+                <div class="comment">
+                    <p><strong>Nuwan M.</strong> A perfect mix of comfort and style. I bought one for myself and another as a gift!</p>
+                </div>
+            </div>
+            <textarea id="commentInput2" placeholder="Add your comment..."></textarea>
+            <button class="submitCommentBtn" onclick="addComment(2)">Submit Comment</button>
+        </div>
+        </div>
+    </section>
+
+    <!-- Product 3 Section -->
+    <section id="prodetails3" class="section-p1">
+        <div id="prodetails">
+            <div class="single-pro-image">
+                <img src="img/Products/cl3.jpg" width="100%" id="MainImg">
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="img/Products/cl31.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl32.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl33.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl3.jpg" width="100%" class="small-img">
+                    </div>
+                </div>
+            </div>
+            <div class="single-pro-details">
+                <h6>Home / Clothing</h6>
+                <h2 class="productName">Organic Cotton T-Shirts</h2>
+                <h2 class="productPrice">LKR 3000.00</h2>
+                <select class="productSize" id="productSize3">
+                    <option value="">Select Size</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XL">XL</option>
+                    <option value="Large">Large</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Small">Small</option>
+                </select>
+                <input type="number" id="productQuantity3" value="1">
+                <button class="normal" id="addToCartBtn3" onclick="addToCart(3)">Add to Cart</button>
+                <h4>Product Description</h4>
+                <span>Soft, eco-friendly t-shirts made from 100% organic cotton, featuring prints inspired by Sri Lankan wildlife and cultural motifs.</span>
+            </div>
+            <h4>Comments:</h4>
+            <div id="comments3" class="comments-container">
+                <div class="comment">
+                    <p><strong>Thilini R.:</strong> The fabric is super soft, and I love the unique Sri Lankan wildlife prints.</p>
+                </div>
+                <div class="comment">
+                    <p><strong>Lakshman D.:</strong> Eco-friendly and stylish! These t-shirts are my go-to for casual outings.</p>
+                </div>
+            </div>
+            <textarea id="commentInput3" placeholder="Add your comment..."></textarea>
+            <button class="submitCommentBtn" onclick="addComment(3)">Submit Comment</button>
+        </div>
+        </div>
+    </section>
+
+    <!-- Product 4 Section -->
+    <section id="prodetails4" class="section-p1">
+        <div id="prodetails">
+            <div class="single-pro-image">
+                <img src="img/Products/cl4.jpg" width="100%" id="MainImg">
+                <div class="small-img-group">
+                    <div class="small-img-col">
+                        <img src="img/Products/cl41.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl42.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl43.jpg" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="img/Products/cl4.jpg" width="100%" class="small-img">
+                    </div>
+                </div>
+            </div>
+            <div class="single-pro-details">
+                <h6>Home / Clothing</h6>
+                <h2 class="productName">Embroidered Linen Tunics</h2>
+                <h2 class="productPrice">LKR 4500.00</h2>
+                <select class="productSize" id="productSize4">
+                    <option value="">Select Size</option>
+                    <option value="XXL">XXL</option>
+                    <option value="XL">XL</option>
+                    <option value="Large">Large</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Small">Small</option>
+                </select>
+                <input type="number" id="productQuantity4" value="1">
+                <button class="normal" id="addToCartBtn4" onclick="addToCart(4)">Add to Cart</button>
+                <h4>Product Description</h4>
+                <span>Comfortable, embroidered linen tunics with a loose fit, featuring handcrafted details that highlight Sri Lankan artistry.</span>
+            </div>
+            <h4>Comments:</h4>
+            <div id="comments4" class="comments-container">
+                <div class="comment">
+                    <p><strong>Nimali W.:</strong> The embroidery is beautiful! It’s comfortable yet chic for both casual and formal wear.</p>
+                </div>
+                <div class="comment">
+                    <p><strong>Sanjeeva P.:</strong> The handcrafted details really stand out. Perfect for hot weather!</p>
+                </div>
+            </div>
+            <textarea id="commentInput4" placeholder="Add your comment..."></textarea>
+            <button class="submitCommentBtn" onclick="addComment(4)">Submit Comment</button>
+        </div>
+        </div>
+    </section>
+
+    <!-- Product 5 Section -->
+    <section id="prodetails5" class="section-p1">
+        <div id="prodetails">
+            <div class="single-pro-image">
+                <img src="img/Products/home1.jpg" width="100%" id="MainImg">
+            </div>
+            <div class="single-pro-details">
+                <h6>Home / Decor</h6>
+                <h2 class="productName">Hand-Carved Wooden Wall Art</h2>
+                <h2 class="productPrice">LKR 8000.00</h2>
+                <select class="productSize" id="productSize5">
+                    <option value="">Select Size</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Small">Small</option>
+                </select>
+                <input type="number" id="productQuantity5" value="1">
+                <button class="normal" id="addToCartBtn5" onclick="addToCart(5)">Add to Cart</button>
+                <h4>Product Description</h4>
+                <span>Intricate, hand-carved designs inspired by Sri Lankan nature, perfect for adding a cultural touch to any room. Each piece is unique, showcasing local craftsmanship.</span>
+            </div>
+            <h4>Comments:</h4>
+            <div id="comments5" class="comments-container">
+                <div class="comment">
+                    <p><strong>Dilani P.:</strong> The detail in the carving is stunning! It’s like bringing a piece of Sri Lankan heritage into my home.</p>
+                </div>
+                <div class="comment">
+                    <p><strong>Amal R.:</strong> Beautiful craftsmanship! It’s a perfect conversation starter in my living room.</p>
+                </div>
+            </div>
+            <textarea id="commentInput5" placeholder="Add your comment..."></textarea>
+            <button class="submitCommentBtn" onclick="addComment(5)">Submit Comment</button>
+        </div>
+        </div>
+    </section>
+
+    <!-- Product 6 Section -->
+    <section id="prodetails6" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/home2.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Decor</h6>
+            <h2 class="productName">Coconut Shell Candle Holderss</h2>
+            <h2 class="productPrice">LKR 2000.00</h2>
+            <select class="productSize" id="productSize6">
+                <option value="">Select Size</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity6" value="1">
+            <button class="normal" id="addToCartBtn6" onclick="addToCart(6)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>Eco-friendly candle holders crafted from polished coconut shells, emitting a warm glow through traditional cut-out patterns.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments6" class="comments-container">
+            <div class="comment">
+                <p><strong>John Doe:</strong> The patterns are so unique, and the warm glow really enhances the room’s vibe.</p>
+            </div>
+            <div class="comment">
+                <p><strong>Ruwanthi S.:</strong> I love how eco-friendly and elegant these candle holders are. They create such a cozy ambiance!</p>
+            </div>
+        </div>
+        <textarea id="commentInput6" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(6)">Submit Comment</button>
+    </div>
+    </section>
+
+    <!-- Product 7 Section -->
+    <section id="prodetails7" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/home3.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Decor</h6>
+            <h2 class="productName">Batik Throw Pillows</h2>
+            <h2 class="productPrice">LKR 1000.00</h2>
+            <select class="productSize" id="productSize7">
+                <option value="">Select Size</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity7" value="1">
+            <button class="normal" id="addToCartBtn7" onclick="addToCart(7)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>Handmade, vibrant batik throw pillows featuring bold Sri Lankan patterns and colors, adding a pop of culture to your living space.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments7" class="comments-container">
+            <div class="comment">
+                <p><strong>Chamari D.:</strong> The fabric feels high-quality, and the designs are simply gorgeous. Highly recommend!</p>
+            </div>
+            <!-- More comments can be added here -->
+        </div>
+        <textarea id="commentInput7" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(7)">Submit Comment</button>
+    </div>
+    </section>
+
+    <!-- Product 8 Section -->
+    <section id="prodetails8" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/home4.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Decor</h6>
+            <h2 class="productName">Handwoven Cane Baskets</h2>
+            <h2 class="productPrice">LKR 3500.00</h2>
+            <select class="productSize" id="productSize8">
+                <option value="">Select Size</option>
+                <option value="Large">Large</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity8" value="1">
+            <button class="normal" id="addToCartBtn8" onclick="addToCart(8)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>Versatile baskets, handwoven from natural cane, ideal for organizing or as decorative pieces. Each basket is sturdy and showcases local artistry.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments8" class="comments-container">
+            <div class="comment">
+                <p><strong>Jane Doe:</strong> I’m impressed by how sturdy they are. They fit perfectly in my rustic decor theme.</p>
+            </div>
+        </div>
+        <textarea id="commentInput8" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(8)">Submit Comment</button>
+    </div>
+    </section>
+
+    <!-- Product 9 Section -->
+    <section id="prodetails9" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/acc1.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Accessories</h6>
+            <h2 class="productName">Coconut Shell Earrings</h2>
+            <h2 class="productPrice">LKR 1500.00</h2>
+            <select class="productSize" id="productSize9">
+                <option value="">Select Size</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity9" value="1">
+            <button class="normal" id="addToCartBtn9" onclick="addToCart(9)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>Lightweight earrings crafted from polished coconut shells, featuring a natural brown hue and subtle carving, perfect for an earthy look.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments9" class="comments-container">
+            <div class="comment">
+                <p><strong>Emily Smith:</strong> Very elegant and comfortable. Highly recommend!</p>
+            </div>
+        </div>
+        <textarea id="commentInput9" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(9)">Submit Comment</button>
+    </div>
+    </section>
+
+    <!-- Product 10 Section -->
+    <section id="prodetails10" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/acc2.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Accessories</h6>
+            <h2 class="productName">Hand-Beaded Bracelets</h2>
+            <h2 class="productPrice">LKR 2000.00</h2>
+            <select class="productSize" id="productSize10">
+                <option value="">Select Size</option>
+                <option value="Large">Large</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity10" value="1">
+            <button class="normal" id="addToCartBtn10" onclick="addToCart(10)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>Colorful bracelets crafted with locally sourced beads, strung by hand to create unique designs that showcase Sri Lankan color schemes.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments10" class="comments-container">
+            <div class="comment">
+                <p><strong>Michael Brown:</strong> The colors are vibrant and reflect Sri Lankan culture beautifully. Love them!</p>
+            </div>
+        </div>
+        <textarea id="commentInput10" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(10)">Submit Comment</button>
+    </div>
+    </section>
+
+    <!-- Product 11 Section -->
+    <section id="prodetails11" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/acc3.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Accessories</h6>
+            <h2 class="productName">Bamboo Sunglasses</h2>
+            <h2 class="productPrice">LKR 6000.00</h2>
+            <select class="productSize" id="productSize11">
+                <option value="">Select Size</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity11" value="1">
+            <button class="normal" id="addToCartBtn11" onclick="addToCart(11)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>Sunglasses with frames made from sustainable bamboo, offering a stylish and eco-friendly alternative to plastic.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments11" class="comments-container">
+            <div class="comment">
+                <p><strong>Sarah Connor:</strong> These sunglasses are not just stylish but also eco-friendly. Love the sustainable approach!</p>
+            </div>
+        </div>
+        <textarea id="commentInput11" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(11)">Submit Comment</button>
+    </div>
+    </section>
+
+    <!-- Product 12 Section -->
+    <section id="prodetails12" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/acc4.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Accessories</h6>
+            <h2 class="productName">Leather Wallets</h2>
+            <h2 class="productPrice">LKR 3000.00</h2>
+            <select class="productSize" id="productSize12">
+                <option value="">Select Size</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity12" value="1">
+            <button class="normal" id="addToCartBtn12" onclick="addToCart(12)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>Handmade wallets crafted from genuine leather, embossed with traditional Sri Lankan patterns, featuring multiple slots for cards and cash.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments12" class="comments-container">
+            <div class="comment">
+                <p><strong>John Doe:</strong> Very comfortable and stylish. Loved it!</p>
+            </div>
+        </div>
+        <textarea id="commentInput12" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(12)">Submit Comment</button>
+    </div>
+    </section>
+
+    <!-- Product 13 Section -->
+    <section id="prodetails13" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/skin1.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Skincare</h6>
+            <h2 class="productName">Ceylon Cinnamon Face Scrub</h2>
+            <h2 class="productPrice">LKR 4500.00</h2>
+            <select class="productSize" id="productSize13">
+                <option value="">Select Size</option>
+                <option value="Large">Large</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity13" value="1">
+            <button class="normal" id="addToCartBtn13" onclick="addToCart(13)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>Exfoliating face scrub with locally sourced cinnamon and brown sugar, designed to rejuvenate the skin and leave it feeling fresh.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments13" class="comments-container">
+            <div class="comment">
+                <p><strong>Alice Walker:</strong> The scrub smells amazing and leaves my skin feeling so refreshed. It’s my new favorite!</p>
+            </div>
+        </div>
+        <textarea id="commentInput13" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(13)">Submit Comment</button>
+    </div>
+    </section>
+
+    <!-- Product 14 Section -->
+    <section id="prodetails14" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/skin2.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Skincare</h6>
+            <h2 class="productName">Aloe Vera & Neem Soap Bars</h2>
+            <h2 class="productPrice">LKR 2000.00</h2>
+            <select class="productSize" id="productSize14">
+                <option value="">Select Size</option>
+                <option value="Large">Large</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity14" value="1">
+            <button class="normal" id="addToCartBtn14" onclick="addToCart(14)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>Gentle soap bars made from aloe vera and neem, known for their healing and moisturizing properties. Perfect for sensitive skin.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments14" class="comments-container">
+            <div class="comment">
+                <p><strong>Emma Johnson:</strong> Perfect for sensitive skin! These soap bars are gentle and leave a soothing effect.</p>
+            </div>
+        </div>
+        <textarea id="commentInput14" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(14)">Submit Comment</button>
+    </div>
+    </section>
+
+    <!-- Product 15 Section -->
+    <section id="prodetails15" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/skin3.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Skincare</h6>
+            <h2 class="productName">Turmeric Face Mask</h2>
+            <h2 class="productPrice">LKR 2500.00</h2>
+            <select class="productSize" id="productSize15">
+                <option value="">Select Size</option>
+                <option value="Large">Large</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity15" value="1">
+            <button class="normal" id="addToCartBtn15" onclick="addToCart(15)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>Brightening face mask powder with turmeric and rice flour, perfect for a natural glow. Just add water or yogurt for a smooth, radiant finish.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments15" class="comments-container">
+            <div class="comment">
+                <p><strong>Michael Brown:</strong> This mask gives such a healthy glow! It’s easy to use and very effective.</p>
+            </div>
+        </div>
+        <textarea id="commentInput15" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(15)">Submit Comment</button>
+    </div>
+    </section>
+
+    <!-- Product 16 Section -->
+    <section id="prodetails16" class="section-p1">
+    <div id="prodetails">
+        <div class="single-pro-image">
+            <img src="img/Products/skin4.jpg" width="100%" id="MainImg">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home / Skincare</h6>
+            <h2 class="productName">Herbal Lip Balm Set</h2>
+            <h2 class="productPrice">LKR 3500.00</h2>
+            <select class="productSize" id="productSize16">
+                <option value="">Select Size</option>
+                <option value="Large">Large</option>
+                <option value="Medium">Medium</option>
+                <option value="Small">Small</option>
+            </select>
+            <input type="number" id="productQuantity16" value="1">
+            <button class="normal" id="addToCartBtn16" onclick="addToCart(16)">Add to Cart</button>
+            <h4>Product Description</h4>
+            <span>A set of lip balms with natural ingredients like beeswax, coconut oil, and Ceylon cinnamon. Keeps lips soft and moisturized.</span>
+        </div>
+        <h4>Comments:</h4>
+        <div id="comments16" class="comments-container">
+            <div class="comment">
+                <p><strong>Nethmi T:</strong> The scrub smells amazing and leaves my skin feeling so refreshed. It’s my new favorite!</p>
+            </div>
+        </div>
+        <textarea id="commentInput16" placeholder="Add your comment..."></textarea>
+        <button class="submitCommentBtn" onclick="addComment(16)">Submit Comment</button>
+    </div>
+    </section>
+    <div id="notification" class="notification"></div>
+
+
+    <section id="product1" class="section-p1">
+        <div class="f-head">
+        <h2>New Arrivals</h2>
+        <p>New-good quality-products</p>
+        </div>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="img/Products/cl3.jpg">
+                <div class="des">
+                    <span class="brand">Clothing</span>
+                    <h5>Organic Cotton T-Shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>LKR 3000.00</h4>
+                </div>
+                <a href="#" ><i class="fal fa-shopping-cart" style="color: #088178;"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/Products/cl4.jpg">
+                <div class="des">
+                    <span class="brand">Clothing</span>
+                    <h5>Embroidered Linen Tunics</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>LKR 4500.00</h4>
+                </div>
+                <a href="#" ><i class="fal fa-shopping-cart" style="color: #088178;"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/Products/acc3.jpg">
+                <div class="des">
+                    <span class="brand">Accessories</span>
+                    <h5>Bamboo Sunglasses</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>LKR 6000.00</h4>
+                </div>
+                <a href="#" ><i class="fal fa-shopping-cart" style="color: #088178;"></i></a>
+            </div>
+            <div class="pro">
+                <img src="img/Products/acc4.jpg">
+                <div class="des">
+                    <span class="brand">Accessories</span>
+                    <h5>Leather Wallets</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>LKR 3000.00</h4>
+                </div>
+                <a href="#" ><i class="fal fa-shopping-cart" style="color: #088178;"></i></a>
+            </div>
+    </section>
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Jayamalapura rd, Gampola, Kandy, Sri Lanka</p>
+            <p><strong>Phone:</strong> +94 776969699</p>
+            <p><strong>Hours:</strong> 8:00 - 21:00, Mon - Sat</p>
+            <div class="folow">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Informations</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>My Acccount</h4>
+            <a href="#">Sign in</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Whishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col">
+            <h4>Install App</h4>
+            <p>From App Store or Play Store</p>
+            <div class="row">
+                <img src="img/pay/app.jpg">
+                <img src="img/pay/play.jpg">
+            </div>
+            <p>Secure paymnet Gateways</p>
+            <img src="img/pay/pay.png">
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Lanka Crafts. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.classList.add('show');
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+    }
+
+        function addToCart(productId) {
+    const productContainer = document.querySelector(`#productSize${productId}`).closest('#prodetails');
+    const productName = productContainer.querySelector('.productName').innerText;
+    const productPrice = parseFloat(productContainer.querySelector('.productPrice').innerText.replace('LKR', ''));
+    const sizeSelect = document.getElementById(`productSize${productId}`);
+    const quantityInput = document.getElementById(`productQuantity${productId}`);
+    const size = sizeSelect.value;
+    const quantity = parseInt(quantityInput.value);
+    const productImage = productContainer.querySelector('.single-pro-image img').src; // Get image source
+
+    if (!size) {
+        alert("Please select a size.");
+        return;
+    }
+    
+    // Send data to the server
+      fetch('add_to_cart.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `product_name=${encodeURIComponent(productName)}&price=${productPrice}&quantity=${quantity}&size=${encodeURIComponent(size)}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+
+    // Check if the product already exists in the cart
+    const existingProductIndex = cart.findIndex(item => item.id === productId && item.size === size);
+    if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity += quantity;
+    } else {
+        // Add new product
+        const newProduct = {
+            id: productId,
+            name: productName,
+            price: productPrice,
+            quantity: quantity,
+            size: size,
+            image: productImage // Include the image in the cart data
+        };
+        cart.push(newProduct);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    showNotification('Product added to cart!');
+}
+
+
+    </script>
+    <script src="script3.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

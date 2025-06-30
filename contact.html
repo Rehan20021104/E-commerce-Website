@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanka Crafts</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+#page-header.about-header{
+  background-image: url(img/banner/b144.jpg);
+}
+
+/* Notification Styling */
+.notification {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #088178; /* Accent color */
+    color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    font-size: 16px;
+    text-align: center;
+}
+.notification.show {
+    display: block; /* Show notification */
+    animation: fadeInOut 3s; /* Fade out after 3 seconds */
+}
+@keyframes fadeInOut {
+    0%, 80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+</style>
+
+<body>
+    <section id="header"> 
+        <a href="index.php"><img src="img/logo.png" class="logo" alt=""> </a>
+        <div>
+            <ui id="navbar">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="shop.html">Products</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="blog.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a class="active" href="contact.html">Contact Us</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <a href="#"id="close"><i class="far fa-times"></i></a>
+            </ui>
+        </div>
+        <div id="mobile">
+            <a href="Cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-bars"></i>
+        </div>
+    </section>
+    <section id="page-header" class="about-header">
+        <h2>#Talk-Us</h2>
+        <p>Contact us for more details</p>
+    </section>
+    <section id="contact-details" class="section-p1">
+        <div class="details">
+            <span>Contact Us</span>
+            <h2>We are here to help you with any questions or concerns.</h2>
+            <h3>Head Office</h3>
+            <div>
+                <list>
+                    <li><i class="fas fa-map-marker-alt"></i> 
+                        <p>Jayamalapura rd, Gampola, Kandy, Sri Lanka</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <p>+94 776969699</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <p>contact@lankacrafts.com</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i> 
+                        <p>8:00 - 21:00, Mon - Sat</p>
+                    </li>
+                </list>
+            </div>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.6462903762585!2d80.56975311133147!3d7.166824615321888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae371003af33f5d%3A0xd290fb8d900428dd!2zR2FtcG9sYSB0b3duLCDgtpzgtrjgt4rgtrTgt5zgt4Ug4Lax4Lac4La74La6Lg!5e0!3m2!1sen!2ssg!4v1731723157309!5m2!1sen!2ssg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    <section id="form-details">
+        
+        <form id="contactForm">
+            <span>Send Us A Message</span>
+            <h3>We Love To Hear From You</h3>
+            <input type="text" placeholder="Name" id="name" required>
+            <input type="email" placeholder="Email" id="email" required>
+            <input type="text" placeholder="Subject" id="subject" required>
+            <textarea cols="30" rows="10" placeholder="Message" id="message" required></textarea>
+            <button class="normal" type="submit">Submit</button>
+        </form>
+        
+        <div class="pepole">
+        <div>
+            <img src="img/people/1.png" alt="">
+            <p><span>Rehan Bandara</span> Senior Marketing Manager <br> phone: +94760415232 <br> Email: rehan22@gmail.com</p>
+        </div>
+        <div>
+            <img src="img/people/2.png" alt="">
+            <p><span>Elantha Madushanka</span> Workshop Coordinator <br> phone: +94760111005 <br> Email: maduxx@gmail.com</p>
+        </div>
+        <div>
+            <img src="img/people/3.png" alt="">
+            <p><span>Miyanthi Kulathunga</span> Product Designer <br> phone: +94769600231 <br> Email: Miya69@gmail.com</p>
+        </div>
+    </div>
+    </section>
+    <div id="notification" class="notification"></div>
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For NewsLetter</h4>
+            <p>Get E mail update about our <span>exclusive deals</span> and updates</p>
+        </div>
+        <div class="form">
+            <input type="email" placeholder="Enter Your Email">
+            <button class="normal" onclick="window.location.href='index2.php'">Sign Up</button>
+        </div>
+    </section>
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Jayamalapura rd, Gampola, Kandy, Sri Lanka</p>
+            <p><strong>Phone:</strong> +94 776969699</p>
+            <p><strong>Hours:</strong> 8:00 - 21:00, Mon - Sat</p>
+            <div class="folow">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="#">Delivery Informations</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>My Acccount</h4>
+            <a href="index2.php">Sign in</a>
+            <a href="cart.html">View Cart</a>
+            <a href="#">My Whishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col">
+            <h4>Install App</h4>
+            <p>From App Store or Play Store</p>
+            <div class="row">
+                <img src="img/pay/app.jpg">
+                <img src="img/pay/play.jpg">
+            </div>
+            <p>Secure paymnet Gateways</p>
+            <img src="img/pay/pay.png">
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Lanka Crafts. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        const form = document.getElementById('contactForm');
+        const notification = document.getElementById('notification');
+    
+        // Function to show a notification
+        function showNotification(message) {
+            notification.textContent = message;
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000); // Hide after 3 seconds
+        }
+    
+        // Form submission handler
+        form.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent actual form submission
+    
+            // Check if all fields are filled
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+    
+            if (name && email && subject && message) {
+                showNotification('Your message has been submitted successfully!');
+                form.reset(); // Clear the form fields
+            } else {
+                showNotification('Please fill in all the required fields.');
+            }
+        });
+    </script>
+    
+</body>
+</html>

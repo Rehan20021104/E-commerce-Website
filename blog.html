@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanka Crafts</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #page-header.blog-header {
+  background-image: url(img/banner/b13.jpg);
+      }
+
+       /* Notification Styling */
+    .notification {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #088178; /* Accent color */
+        color: #ffffff;
+        padding: 15px 20px;
+        border-radius: 12px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        font-size: 16px;
+        text-align: center;
+    }
+    .notification.show {
+        display: block; /* Show notification */
+        animation: fadeInOut 3s; /* Notification fades out after 3 seconds */
+    }
+    @keyframes fadeInOut {
+        0%, 80% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+    </style>
+</head>
+<body>
+    <section id="header"> 
+        <a href="index.php"><img src="img/logo.png" class="logo" alt=""> </a>
+        <div>
+            <ui id="navbar">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="shop.html">Products</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a class="active" href="blog.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <a href="#"id="close"><i class="far fa-times"></i></a>
+            </ui>
+        </div>
+        <div id="mobile">
+            <a href="Cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-bars"></i>
+        </div>
+    </section>
+    <section id="page-header" class="blog-header">
+        <h2>#Explore-More</h2>
+        <p>Read all case studies about our products</p>
+    </section>
+    <section id="blog">
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/blog/g1.jpeg">
+            </div>
+            <div class="blog-details">
+                <h4>The Art of Crafting A Perfect Saree</h4>
+                <p>Crafting a perfect saree is a delicate and time-consuming process. This article will help you understand the basics of saree making and show you how to create a beautiful and stylish garment.</p>
+                <a href="#">Read More</a>
+                <div class="btags">
+                    <span class="btag">#Goodwork</span>
+                    <span class="btag">#Handcrafted</span>
+                    <span class="btag">#SriLankanArt</span>
+                    <span class="btag">#NewTrend</span>
+                </div>
+                <div class="bbutton-container">
+                    <button class="bbutton" onclick="likeImage()">
+                        <i class="fas fa-thumbs-up"></i> Like
+                    </button>
+                    <button class="bbutton" onclick="shareImage()">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+            <h1>15/10</h1>
+        </div>
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/blog/g2.jpeg">
+            </div>
+            <div class="blog-details">
+                <h4>Hand-Carved Wooden Wall Art Collection</h4>
+                <p>A close-up view of intricate wood carvings inspired by Sri Lankan flora and fauna. Each piece is carefully handcrafted to capture the spirit of local artistry, making it a unique addition to any space.</p>
+                <a href="#">Read More</a>
+                <div class="btags">
+                    <span class="btag">#Woodwork</span>
+                    <span class="btag">#Handcrafted</span>
+                    <span class="btag">#SriLankanArt</span>
+                    <span class="btag">#WallDecor</span>
+                </div>
+                <div class="bbutton-container">
+                    <button class="bbutton" onclick="likeImage()">
+                        <i class="fas fa-thumbs-up"></i> Like
+                    </button>
+                    <button class="bbutton" onclick="shareImage()">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+            <h1>01/12</h1>
+            </div>
+            
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/blog/g3.jpeg">
+            </div>
+            <div class="blog-details">
+                <h4>Batik Dyeing Workshop Highlights</h4>
+                <p>Participants learning the art of traditional batik dyeing. The workshop was filled with creativity as attendees tried their hands at wax-resist dyeing techniques, resulting in beautiful, one-of-a-kind patterns.</p>
+                <a href="#">Read More</a>
+                <div class="btags">
+                    <span class="btag">#BatikDyeing</span>
+                    <span class="btag"> #Workshops</span>
+                    <span class="btag">#CulturalArt</span>
+                    <span class="btag">#SriLankanTradition</span>
+                </div>
+                <div class="bbutton-container">
+                    <button class="bbutton" onclick="likeImage()">
+                        <i class="fas fa-thumbs-up"></i> Like
+                    </button>
+                    <button class="bbutton" onclick="shareImage()">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+            <h1>15/10</h1>
+            </div>
+            
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/blog/g4.jpeg">
+            </div>
+            <div class="blog-details">
+                <h4>Coconut Shell Candle Holders – Eco-Friendly Elegance</h4>
+                <p>Coconut shells transformed into stunning candle holders, adding a natural touch to home decor. Each holder is handcrafted, showcasing the versatility of Sri Lanka’s natural resources.</p>
+                <a href="#">Read More</a>
+                <div class="btags">
+                    <span class="btag">#CoconutCraft</span>
+                    <span class="btag">#EcoFriendly</span>
+                    <span class="btag">#HomeDecor</span>
+                    <span class="btag">#Handmade</span>
+                </div>
+                <div class="bbutton-container">
+                    <button class="bbutton" onclick="likeImage()">
+                        <i class="fas fa-thumbs-up"></i> Like
+                    </button>
+                    <button class="bbutton" onclick="shareImage()">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+            <h1>01/11</h1>
+            </div>
+            
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/blog/g5.jpeg">
+            </div>
+            <div class="blog-details">
+                <h4>Herbal Skincare Creations</h4>
+                <p>A showcase of freshly made herbal skincare products, including face masks and lip balms crafted from local ingredients like turmeric, aloe vera, and coconut oil. These natural products reflect a commitment to wellness and sustainability.</p>
+                <a href="#">Read More</a>
+                <div class="btags">
+                    <span class="btag">#HerbalSkincare</span>
+                    <span class="btag">#Organic</span>
+                    <span class="btag">#SriLankanArt</span>
+                    <span class="btag">#SriLankanIngredients</span>
+                </div>
+                <div class="bbutton-container">
+                    <button class="bbutton" onclick="likeImage()">
+                        <i class="fas fa-thumbs-up"></i> Like
+                    </button>
+                    <button class="bbutton" onclick="shareImage()">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+            <h1>13/11</h1>
+            </div>   
+    </section>
+    <div id="notification" class="notification"></div>
+    <section id="pagination" class="section-p1"> 
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+    </section>
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For NewsLetter</h4>
+            <p>Get E mail update about our <span>exclusive deals</span> and updates</p>
+        </div>
+        <div class="form">
+            <input type="email" placeholder="Enter Your Email">
+            <button class="normal" onclick="window.location.href='index2.php'">Sign Up</button>
+        </div>
+    </section>
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Jayamalapura rd, Gampola, Kandy, Sri Lanka</p>
+            <p><strong>Phone:</strong> +94 776969699</p>
+            <p><strong>Hours:</strong> 8:00 - 21:00, Mon - Sat</p>
+            <div class="folow">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="#">Delivery Informations</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>My Acccount</h4>
+            <a href="index2.php">Sign in</a>
+            <a href="cart.html">View Cart</a>
+            <a href="#">My Whishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col">
+            <h4>Install App</h4>
+            <p>From App Store or Play Store</p>
+            <div class="row">
+                <img src="img/pay/app.jpg">
+                <img src="img/pay/play.jpg">
+            </div>
+            <p>Secure paymnet Gateways</p>
+            <img src="img/pay/pay.png">
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Lanka Crafts. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        function showNotification(message) {
+    const notification = document.getElementById('notification');
+    notification.textContent = message;
+    notification.classList.add('show');
+
+    // Remove the notification after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
+
+function likeImage() {
+    showNotification('You liked this image!');
+}
+
+function shareImage() {
+    showNotification('You shared this image!');
+}
+
+    </script>
+
+</body>
+</html>

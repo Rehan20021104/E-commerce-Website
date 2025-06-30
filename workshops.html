@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanka Crafts</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+#workshop {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 40px;
+    justify-content: center;
+}
+#page-header.blog-header {
+  background-image: url(img/banner/b12.jpg);
+}
+
+
+.blog-box {
+    background-color: #1c1c1c; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 320px;
+    color: #e0e0e0; 
+    display: flex;
+    flex-direction: column; 
+}
+
+.blog-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.blog-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #252525; 
+}
+
+/* Workshop Details */
+.workshop-card {
+    padding: 15px 20px;
+    background-color: #252525; 
+    border-top: none; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.workshop-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffffff; 
+}
+
+.workshop-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #d4d4d4;
+}
+
+.workshop-card p strong {
+    color: #e0e0e0; 
+}
+
+.workshop-card button {
+    background-color: #088178;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.workshop-card button:hover {
+    background-color: #066963;
+}
+    </style>
+</head>
+<body>
+    <section id="header"> 
+        <a href="index.php"><img src="img/logo.png" class="logo" alt=""> </a>
+        <div>
+            <ui id="navbar">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="shop.html">Products</a></li>
+                <li><a class="active" href="workshops.html">Workshops</a></li>
+                <li><a href="blog.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <a href="#"id="close"><i class="far fa-times"></i></a>
+            </ui>
+        </div>
+        <div id="mobile">
+            <a href="Cart.html"><i class="far fa-shopping-bag"></i></a>
+            <i id="bar" class="fas fa-bars"></i>
+        </div>
+    </section>
+    <section id="page-header" class="blog-header">
+        <h2>#Work-Hard</h2>
+        <p>To be a best Artisan in world</p>
+    </section>
+    <section id="workshop">
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/work/w1.jpeg" alt="Batik Dyeing Workshop">
+            </div>
+            <div class="workshop-card">
+                <h4>Introduction to Batik Dyeing</h4>
+                <p><strong>Description:</strong> A hands-on workshop exploring traditional batik dyeing techniques. Participants will learn the art of wax-resist dyeing to create their own batik fabric piece.</p>
+                <p><strong>Date & Time:</strong> Saturday, November 18, 2025, 10:00 AM - 4:00 PM</p>
+                <p><strong>Price:</strong> LKR 16000</p>
+                <p><strong>Instructor:</strong> Kasun Jayasekara, local artisan with 10+ years of experience in batik dyeing.</p>
+                <p><strong>Spots Available:</strong> 12</p>
+                <p><strong>Rating:</strong> ★★★★☆</p>
+                <button class="book-now" onclick="window.location.href='index3.php?workshopName=Introduction+to+Batik+Dyeing&workshopPrice=16000'">Book Now</button>
+
+
+            </div>
+        </div>
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/work/w2.jpeg" alt="Coconut Shell Crafting">
+            </div>
+            <div class="workshop-card">
+                <h4>Coconut Shell Crafting</h4>
+                <p><strong>Description:</strong> Learn how to transform coconut shells into beautiful home decor items. This workshop covers basic carving, polishing, and finishing techniques.</p>
+                <p><strong>Date & Time:</strong> Sunday, December 3, 2025, 9:30 AM - 1:30 PM</p>
+                <p><strong>Price:</strong> LKR 13000</p>
+                <p><strong>Instructor:</strong> Priya Senanayake, expert in eco-friendly craft.</p>
+                <p><strong>Spots Available:</strong> 10</p>
+                <p><strong>Rating:</strong> ★★★★☆</p>
+                <button class="book-now" onclick="window.location.href='index3.php?workshopName=Coconut+Shell+Crafting&workshopPrice=13000'">Book Now</button>
+            </div>
+        </div>
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/work/w3.jpeg" alt="Herbal Skincare Workshop">
+            </div>
+            <div class="workshop-card">
+                <h4>Herbal Skincare Workshop</h4>
+                <p><strong>Description:</strong> A natural skincare workshop focusing on making herbal-infused products. Learn to make face masks, scrubs, and lip balms using local ingredients like cinnamon, aloe vera, and turmeric.</p>
+                <p><strong>Date & Time:</strong> Saturday, December 10, 2025, 11:00 AM - 3:00 PM</p>
+                <p><strong>Price:</strong> LKR 15000</p>
+                <p><strong>Instructor:</strong> Kasun Jayasekara, herbal skincare enthusiast.</p>
+                <p><strong>Spots Available:</strong> 12</p>
+                <p><strong>Rating:</strong> ★★★★★</p>
+                <button class="book-now" onclick="window.location.href='index3.php?workshopName=Herbal+Skincare+Workshop&workshopPrice=15000'">Book Now</button>
+            </div>
+        </div>
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/work/w4.jpeg" alt="Handloom Weaving Basics">
+            </div>
+            <div class="workshop-card">
+                <h4>Handloom Weaving Basics</h4>
+                <p><strong>Description:</strong> This workshop introduces participants to the basics of handloom weaving. Attendees will create their own woven fabric piece while learning traditional techniques.</p>
+                <p><strong>Date & Time:</strong> Saturday, January 6, 2025, 9:00 AM - 5:00 PM</p>
+                <p><strong>Price:</strong> LKR 10000</p>
+                <p><strong>Instructor:</strong> Ruwan Wijesinghe, a handloom weaving artisan with 20 years of experience.</p>
+                <p><strong>Spots Available:</strong> 8</p>
+                <p><strong>Rating:</strong> ★★★★☆</p>
+                <button class="book-now" onclick="window.location.href='index3.php?workshopName=Handloom+Weaving+Basics&workshopPrice=10000'">Book Now</button>
+            </div>
+        </div>
+        <div class="blog-box">
+            <div class="blog-img">
+                <img src="img/work/w5.jpeg" alt="Leather Craft Workshop">
+            </div>
+            <div class="workshop-card">
+                <h4>Leather Craft Workshop</h4>
+                <p><strong>Description:</strong> Dive into the basics of leather crafting with this hands-on workshop. Learn to create small leather items like wallets and keychains using traditional tools.</p>
+                <p><strong>Date & Time:</strong> Sunday, January 20, 2025, 10:00 AM - 2:00 PM</p>
+                <p><strong>Price:</strong> LKR 12000</p>
+                <p><strong>Instructor:</strong> Kasun Jayasekara.</p>
+                <p><strong>Spots Available:</strong> 10</p>
+                <p><strong>Rating:</strong> ★★★★★</p>
+                <button class="book-now" onclick="window.location.href='index3.php?workshopName=Leather+Craft+Workshop&workshopPrice=12000'">Book Now</button>
+            </div>
+        </div>
+    </section>  
+    <section id="pagination" class="section-p1"> 
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+    </section>
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For NewsLetter</h4>
+            <p>Get E mail update about our <span>exclusive deals</span> and updates</p>
+        </div>
+        <div class="form">
+            <input type="email" placeholder="Enter Your Email">
+            <button class="normal" onclick="window.location.href='index2.php'">Sign Up</button>
+        </div>
+    </section>
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/logo.png">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Jayamalapura rd, Gampola, Kandy, Sri Lanka</p>
+            <p><strong>Phone:</strong> +94 776969699</p>
+            <p><strong>Hours:</strong> 8:00 - 21:00, Mon - Sat</p>
+            <div class="folow">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="about.html">About Us</a>
+            <a href="#">Delivery Informations</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>My Acccount</h4>
+            <a href="index2.php">Sign in</a>
+            <a href="cart.html">View Cart</a>
+            <a href="#">My Whishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col">
+            <h4>Install App</h4>
+            <p>From App Store or Play Store</p>
+            <div class="row">
+                <img src="img/pay/app.jpg">
+                <img src="img/pay/play.jpg">
+            </div>
+            <p>Secure paymnet Gateways</p>
+            <img src="img/pay/pay.png">
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Lanka Crafts. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+    function addToCart(workshopId) {
+        const workshopContainer = document.querySelector(`.blog-box:nth-child(${workshopId})`);
+        const workshopName = workshopContainer.querySelector('.workshop-card h4').innerText;
+        const workshopPrice = parseFloat(workshopContainer.querySelector('.workshop-card p:nth-child(4)').innerText.replace('Price: LKR', ''));
+        const workshopImage = workshopContainer.querySelector('.blog-img img').src;
+
+        // Fetch the current cart from localStorage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if the workshop already exists in the cart
+        const existingItemIndex = cart.findIndex(item => item.id === workshopId && item.type === 'workshop');
+
+        if (existingItemIndex !== -1) {
+            // If the workshop exists, increment its quantity
+            cart[existingItemIndex].quantity += 1;
+        } else {
+            // Add new workshop to the cart
+            cart.push({
+                id: workshopId,
+                type: 'workshop', // To differentiate workshops from products
+                name: workshopName,
+                price: workshopPrice,
+                quantity: 1,
+                image: workshopImage
+            });
+        }
+
+        // Save the updated cart to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert('Workshop added to cart!');
+    }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
